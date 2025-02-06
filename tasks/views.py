@@ -4,7 +4,7 @@ from .models import Task
 # Create your views here.
 def list_tasks( request ):
 	tasks = Task.objects.all()
-	print(tasks)
+	# print(tasks)
 	return render( request, 'list_tasks.html', { "tasks": tasks })
 
 def create_task( request ):
