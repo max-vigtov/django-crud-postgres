@@ -10,9 +10,9 @@ def list_tasks( request ):
 def create_task( request ):
 	task = Task(title = request.POST['title'], description = request.POST['description'])
 	task.save()
-	return redirect('/tasks/')
+	return redirect('/')
 
 def delete_task(request, task_id):
 	taskToDelete = Task.objects.get(id=task_id)
 	taskToDelete.delete()
-	return redirect('/tasks/')
+	return redirect('/')
