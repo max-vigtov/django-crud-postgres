@@ -31,6 +31,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+PORT = os.getenv('PORT', '8000')  # Usa el puerto de Railway o 8000 como predeterminado
+ALLOWED_HOSTS = ['.railway.app', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
