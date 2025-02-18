@@ -28,11 +28,13 @@ SECRET_KEY = 'django-insecure-g)$3qg-dc!h@e7m$+o!=+@k#$yo_#nl(%-phy#y*fi091%mvv#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+	'.railway.app',
+    'localhost'
+]
 
 
-PORT = os.getenv('PORT', '8000')  # Usa el puerto de Railway o 8000 como predeterminado
-ALLOWED_HOSTS = ['.railway.app', 'localhost']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -89,6 +91,10 @@ DATABASES = {
         'PORT': 5432,  # El puerto
     }
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-crud-postgres.up.railway.app'
+]
 
 
 # Password validation
