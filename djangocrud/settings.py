@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-from urllib.parse import urlparse
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,16 +77,14 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
+        'NAME': 'neondb',  # El nombre de la base de datos
+        'USER': 'neondb_owner',  # El usuario
+        'PASSWORD': 'npg_GgAo2Z5exHJf',  # La contraseña
+        'HOST': 'ep-round-glade-a5j2w5ic-pooler.us-east-2.aws.neon.tech',  # El host
+        'PORT': 5432,  # El puerto
     }
 }
 
